@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anvith Poojary is a VLSI student building thoughtful solutions at the intersection of digital electronics, AI, and semiconductor technology.">
+  <meta name="theme-color" content="#081827">
+  <title>Anvith Poojary | VLSI Student Portfolio</title>
+
+  <!-- Typography and vendor styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Page loading state -->
+  <div class="page-loader" id="pageLoader" aria-label="Loading portfolio" role="status">
+    <div class="loader-mark">AP<span>.</span></div>
+    <div class="loader-line"><span></span></div>
+  </div>
+
+  <!-- Sticky navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Primary navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#home" aria-label="Anvith Poojary home">
+        <span class="brand-mark">AP</span>
+        <span class="brand-name">Anvith<span>.</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+          <li class="nav-item"><button class="btn btn-share" type="button" id="shareButton" aria-label="Share this portfolio"><i class="bi bi-share"></i> Share</button></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-nav" href="#contact">Let's talk <i class="bi bi-arrow-up-right"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-section section-padding" id="home">
+      <div class="hero-grid"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7 hero-copy" data-reveal>
+            <p class="eyebrow"><span class="status-dot"></span> Available for learning & collaboration</p>
+            <p class="hero-tagline">VLSI Student <span>/</span> Future Semiconductor Engineer</p>
+            <h1>Building the <em>logic</em><br>behind tomorrow.</h1>
+            <p class="hero-intro">I'm Anvith Poojary, a VLSI student exploring how precise digital design and generative AI can turn bold ideas into real systems.</p>
+            <div class="hero-actions d-flex flex-wrap gap-3">
+              <a href="#projects" class="btn btn-primary-custom">Explore my work <i class="bi bi-arrow-down-right"></i></a>
+              <a href="#" class="btn btn-outline-custom" id="downloadResume"><i class="bi bi-download"></i> Download resume</a>
+              <a href="#contact" class="btn btn-outline-custom">Contact me <i class="bi bi-send"></i></a>
+            </div>
+            <div class="hero-meta">
+              <span><i class="bi bi-geo-alt"></i> Udupi, Karnataka</span>
+              <span class="meta-divider"></span>
+              <span><i class="bi bi-mortarboard"></i> B.E. VLSI Design</span>
+            </div>
+          </div>
+          <div class="col-lg-5 hero-visual" data-reveal data-reveal-delay="150">
+            <div class="profile-orbit" aria-label="Profile image placeholder for Anvith Poojary">
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+              <div class="profile-card">
+                <div class="profile-topline"><strong>PROFILE / 01</strong></div>
+                <div class="profile-initials">AP</div>
+                <div class="profile-caption"><strong>ANVITH POOJARY</strong><small>VLSI STUDENT</small></div>
+              </div>
+              <div class="visual-cross cross-one">+</div>
+              <div class="visual-cross cross-two">+</div>
+            </div>
+          </div>
+        </div>
+        <a href="#about" class="scroll-cue" aria-label="Scroll to about section"><span>Scroll to explore</span><i class="bi bi-arrow-down"></i></a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section-padding section-light" id="about">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">01 / About me</p>
+          <h2>Curiosity is my<br><span>core component.</span></h2>
+        </div>
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-5" data-reveal>
+            <p class="lead-copy">I am passionate about learning new technologies, coding, and exploring the intersection of Artificial Intelligence and VLSI.</p>
+            <div class="about-note"><i class="bi bi-quote"></i><p>Always learning. Always building. Always asking what comes next.</p></div>
+          </div>
+          <div class="col-lg-6 offset-lg-1" data-reveal data-reveal-delay="120">
+            <p class="body-copy">I enjoy solving problems, building innovative projects, and developing my technical skills through practical learning. I am particularly interested in VLSI design, digital electronics, semiconductor technology, VLSI software tools, and AI applications in VLSI.</p>
+            <p class="body-copy">I am continuously working to expand my knowledge and prepare myself for opportunities in the VLSI and semiconductor industry.</p>
+            <div class="info-grid">
+              <div><span>NAME</span><strong>Anvith Poojary</strong></div>
+              <div><span>AGE</span><strong>19 years</strong></div>
+              <div><span>BASED IN</span><strong>Byndoor, Kundapur</strong></div>
+              <div><span>PIN CODE</span><strong>576219</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section-padding" id="education">
+      <div class="container">
+        <div class="section-heading d-lg-flex justify-content-between align-items-end" data-reveal>
+          <div><p class="eyebrow">02 / Education</p><h2>Learning with<br><span>intention.</span></h2></div>
+          <p class="heading-aside">A foundation in electronics<br>with a future-facing edge.</p>
+        </div>
+        <div class="education-track">
+          <article class="education-card" data-reveal>
+            <div class="card-index">01</div><div class="education-icon"><i class="bi bi-book"></i></div>
+            <p class="card-label">PUC</p><h3>Janatha PU College</h3><p>Kundapur</p><div class="card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+          </article>
+          <article class="education-card featured-education" data-reveal data-reveal-delay="100">
+            <div class="card-index">02</div><div class="education-icon"><i class="bi bi-buildings"></i></div>
+            <p class="card-label">University</p><h3>St Joseph Engineering College</h3><p>SJEC, Mangaluru</p><div class="card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+          </article>
+          <article class="education-card" data-reveal data-reveal-delay="200">
+            <div class="card-index">03</div><div class="education-icon"><i class="bi bi-cpu"></i></div>
+            <p class="card-label">Degree</p><h3>B.E. in Very Large Scale Integration</h3><p>Currently in 3rd Semester</p><div class="card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section-padding section-dark" id="skills">
+      <div class="container">
+        <div class="section-heading light-heading" data-reveal><p class="eyebrow">03 / Skills</p><h2>Tools in my<br><span>workbench.</span></h2></div>
+        <div class="row g-4 skills-grid">
+          <div class="col-md-4" data-reveal><article class="skill-card"><div class="skill-head"><div class="skill-icon"><i class="bi bi-lightning-charge"></i></div><span>01</span></div><h3>Power Electronics</h3><p>Understanding energy conversion and the systems that keep modern hardware moving.</p><div class="skill-progress"><div class="progress-meta"><span>Learning curve</span><strong>78%</strong></div><div class="progress"><div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div></div></div></article></div>
+          <div class="col-md-4" data-reveal data-reveal-delay="100"><article class="skill-card"><div class="skill-head"><div class="skill-icon"><i class="bi bi-diagram-3"></i></div><span>02</span></div><h3>Basic Electronics</h3><p>Building a clear mental model of circuits, components, signals, and digital systems.</p><div class="skill-progress"><div class="progress-meta"><span>Learning curve</span><strong>84%</strong></div><div class="progress"><div class="progress-bar" role="progressbar" style="width: 84%" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div></div></div></article></div>
+          <div class="col-md-4" data-reveal data-reveal-delay="200"><article class="skill-card"><div class="skill-head"><div class="skill-icon"><i class="bi bi-stars"></i></div><span>03</span></div><h3>Generative AI</h3><p>Crafting structured prompts and exploring multimodal AI as a creative engineering tool.</p><div class="skill-progress"><div class="progress-meta"><span>Learning curve</span><strong>82%</strong></div><div class="progress"><div class="progress-bar" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div></div></div></article></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section-padding section-light" id="projects">
+      <div class="container">
+        <div class="section-heading d-lg-flex justify-content-between align-items-end" data-reveal><div><p class="eyebrow">04 / Selected projects</p><h2>Ideas made<br><span>tangible.</span></h2></div><p class="heading-aside">Two explorations.<br>Many more ahead.</p></div>
+        <div class="row g-4">
+          <div class="col-lg-6" data-reveal><article class="project-card"><div class="project-visual project-visual-barcode"><div class="scanner-line"></div><div class="barcode-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="project-visual-label">NANO / SENSOR / 01</div></div><div class="project-content"><div class="d-flex justify-content-between align-items-start"><p class="card-label">Problem-Based Learning (PBL)</p><span class="project-number">01</span></div><h3>Barcode Reader</h3><p>A technical simulation modeling a high-precision barcode scanner utilizing nanosensor technology. The system processes optical variations into digital signal outputs for rapid data decoding and inventory management.</p><a href="#contact" class="project-link">Discuss project <i class="bi bi-arrow-up-right"></i></a></div></article></div>
+          <div class="col-lg-6" data-reveal data-reveal-delay="120"><article class="project-card"><div class="project-visual project-visual-ai"><div class="ai-sphere"><i class="bi bi-stars"></i></div><div class="ai-orbit ai-orbit-a"></div><div class="ai-orbit ai-orbit-b"></div><div class="project-visual-label">PROMPT / SYNTHESIS / 02</div></div><div class="project-content"><div class="d-flex justify-content-between align-items-start"><p class="card-label">Generative AI & Image Synthesis</p><span class="project-number">02</span></div><h3>Google Student Ambassador AI Prompts</h3><p>A series of structured multimodal prompts created during the Google Student Ambassador program, using Google Gemini to generate high-fidelity technical concepts and custom assets.</p><a href="#contact" class="project-link">Discuss project <i class="bi bi-arrow-up-right"></i></a></div></article></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="section-padding section-purple" id="achievements">
+      <div class="container">
+        <div class="section-heading light-heading" data-reveal><p class="eyebrow">05 / Achievements</p><h2>Proof of<br><span>progress.</span></h2></div>
+        <div class="certificate-list">
+          <article class="certificate-item" data-reveal><div class="certificate-icon"><i class="bi bi-lightning-charge"></i></div><div><p class="card-label">Power Electronics</p><h3>Power Electronics Certificate</h3><p>Great Learning</p></div><span class="certificate-arrow"><i class="bi bi-arrow-up-right"></i></span></article>
+          <article class="certificate-item" data-reveal data-reveal-delay="100"><div class="certificate-icon"><i class="bi bi-cloud"></i></div><div><p class="card-label">Cloud & AI</p><h3>Generative AI with Google Cloud</h3><p>Simplilearn</p></div><span class="certificate-arrow"><i class="bi bi-arrow-up-right"></i></span></article>
+          <article class="certificate-item" data-reveal data-reveal-delay="200"><div class="certificate-icon"><i class="bi bi-google"></i></div><div><p class="card-label">Google Ambassador Program</p><h3>Multimodal Prompt Engineering & Generative Workflows</h3><p>Google Student Ambassador Program</p></div><span class="certificate-arrow"><i class="bi bi-arrow-up-right"></i></span></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section-padding section-light contact-section" id="contact">
+      <div class="container"><div class="row g-5">
+        <div class="col-lg-5" data-reveal><p class="eyebrow">06 / Contact</p><h2>Let's build<br><span>what's next.</span></h2><p class="contact-intro">Have an idea, a question, or an interesting problem? I would love to hear from you.</p><div class="contact-details"><a href="mailto:anvithpoojari1721@gnail.com"><i class="bi bi-envelope"></i><span><small>EMAIL</small>anvithpoojari1721@gnail.com</span></a><a href="tel:+917026412717"><i class="bi bi-telephone"></i><span><small>PHONE</small>+91 7026412717</span></a><div><i class="bi bi-geo-alt"></i><span><small>LOCATION</small>Byndoor, Kundapur, Udupi District</span></div></div></div>
+        <div class="col-lg-6 offset-lg-1" data-reveal data-reveal-delay="120"><form id="contactForm" class="contact-form" novalidate><div class="row g-4"><div class="col-md-6 form-field"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="Anvith Poojary" required><div class="invalid-feedback">Please enter your name.</div></div><div class="col-md-6 form-field"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="you@example.com" required><div class="invalid-feedback">Please enter a valid email.</div></div><div class="col-12 form-field"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="Let's create something" required><div class="invalid-feedback">Please enter a subject.</div></div><div class="col-12 form-field"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me a little about your idea..." required></textarea><div class="invalid-feedback">Please write a message.</div></div><div class="col-12 d-flex align-items-center gap-3"><button class="btn btn-primary-custom" type="submit">Send message <i class="bi bi-arrow-up-right"></i></button><span class="form-status" id="formStatus" role="status"></span></div></div></form></div>
+      </div></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer"><div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"><p>&copy; 2026 Anvith Poojary <span>|</span> Personal Portfolio</p><div class="footer-links"><a href="https://github.com/A-poojary" target="_blank" rel="noopener noreferrer" aria-label="Anvith's GitHub"><i class="bi bi-github"></i> GitHub</a><a href="mailto:anvithpoojari1721@gnail.com"><i class="bi bi-envelope"></i> Email</a><a href="#home" class="back-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a></div></div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
