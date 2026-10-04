@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <meta name="description" content="Personal portfolio of ANVITH POOJARY, a VLSI Design and Technology student interested in coding, software development, and innovation.">
-  <meta name="keywords" content="ANVITH POOJARY, VLSI, portfolio, engineering student, Python, C, C++, software development">
+  <meta name="description" content="Personal portfolio of ANVITH POOJARY, a VLSI Design and Technology student interested in coding, software development, problem-solving, and innovation.">
+  <meta name="keywords" content="ANVITH POOJARY, VLSI, portfolio, Python, C, C++, Advanced C, engineering student, software development">
   <meta name="author" content="ANVITH POOJARY">
-  <meta name="theme-color" content="#070b1f">
+  <meta name="theme-color" content="#080b24">
 
-  <title>ANVITH POOJARY | VLSI Design & Technology</title>
+  <title>ANVITH POOJARY | VLSI Design & Technology Student</title>
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -27,13 +27,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <!-- Loading Screen -->
-  <div id="loader" class="loader-screen" aria-label="Loading website">
-    <div class="loader-orbit">
-      <span></span>
-      <span></span>
-      <span></span>
+<body class="loading">
+  <!-- Page loader -->
+  <div id="loader" class="loader-screen" aria-label="Loading portfolio">
+    <div class="loader-orbit" aria-hidden="true">
+      <span></span><span></span><span></span>
     </div>
     <p>Loading portfolio...</p>
   </div>
@@ -43,10 +41,10 @@
   <div class="glow glow-one" aria-hidden="true"></div>
   <div class="glow glow-two" aria-hidden="true"></div>
 
-  <!-- Navigation -->
+  <!-- Sticky navigation -->
   <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Primary navigation">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#home" aria-label="ANVITH POOJARY home">
+      <a class="navbar-brand" href="#home" aria-label="ANVITH POOJARY home">
         <span class="brand-mark">AP</span>
         <span>ANVITH<span class="brand-dot">.</span></span>
       </a>
@@ -83,16 +81,14 @@
           <div class="col-lg-7 order-2 order-lg-1 reveal">
             <div class="hero-kicker">
               <span class="status-dot"></span>
-              Open to learning & collaboration
+              VLSI + Software + Innovation
             </div>
 
             <h1 class="hero-title">
               Hi, I'm <span class="gradient-text">ANVITH POOJARY</span>
             </h1>
 
-            <div class="hero-subtitle">
-              VLSI (Design &amp; Technology) Student
-            </div>
+            <h2 class="hero-subtitle">VLSI (Design & Technology) Student</h2>
 
             <p class="hero-description">
               I am from Kundapur and currently pursuing B.E. in VLSI (Design and Technology)
@@ -101,7 +97,7 @@
             </p>
 
             <div class="hero-actions d-flex flex-wrap gap-3">
-              <button class="btn btn-primary-custom btn-lg px-4" id="resumeBtn">
+              <button class="btn btn-primary-custom btn-lg px-4" id="resumeBtn" type="button">
                 <i class="bi bi-file-earmark-arrow-down me-2"></i>Download Resume
               </button>
               <a class="btn btn-outline-light btn-lg px-4" href="#contact">
@@ -141,18 +137,25 @@
             <div class="profile-wrap mx-auto">
               <div class="profile-ring ring-one"></div>
               <div class="profile-ring ring-two"></div>
+
               <div class="profile-card">
-                <!-- Replace the initials with a real image later if desired -->
+                <!-- Replace this placeholder with your photo later -->
                 <div class="profile-placeholder" role="img" aria-label="Profile image placeholder">
                   <span>AP</span>
                 </div>
+
                 <div class="profile-badge">
                   <i class="bi bi-cpu-fill"></i>
                   <span>VLSI + Software</span>
                 </div>
               </div>
-              <div class="floating-chip chip-one"><i class="bi bi-code-slash"></i> Coding</div>
-              <div class="floating-chip chip-two"><i class="bi bi-lightbulb"></i> Innovation</div>
+
+              <div class="floating-chip chip-one">
+                <i class="bi bi-code-slash"></i> Coding
+              </div>
+              <div class="floating-chip chip-two">
+                <i class="bi bi-lightbulb"></i> Innovation
+              </div>
             </div>
           </div>
         </div>
@@ -175,7 +178,7 @@
 
         <div class="row g-4 align-items-stretch">
           <div class="col-lg-7 reveal">
-            <div class="glass-card about-card h-100">
+            <article class="glass-card about-card h-100">
               <div class="icon-box"><i class="bi bi-person-workspace"></i></div>
               <h3>Who I am</h3>
               <p>
@@ -184,35 +187,39 @@
                 problem-solving, and building innovative projects.
               </p>
               <p class="mb-0">
-                I continuously learn new technologies and strengthen my technical skills through
+                I continuously learn new technologies and improve my technical skills through
                 practical applications, experimentation, and project development.
               </p>
-            </div>
+            </article>
           </div>
 
           <div class="col-lg-5 reveal reveal-delay">
-            <div class="glass-card details-card h-100">
+            <article class="glass-card details-card h-100">
               <div class="detail-row">
                 <span class="detail-icon"><i class="bi bi-person"></i></span>
                 <div><small>Name</small><strong>ANVITH POOJARY</strong></div>
               </div>
+
               <div class="detail-row">
                 <span class="detail-icon"><i class="bi bi-calendar3"></i></span>
                 <div><small>Age</small><strong>20</strong></div>
               </div>
+
               <div class="detail-row">
                 <span class="detail-icon"><i class="bi bi-geo-alt"></i></span>
                 <div><small>Location</small><strong>Byndoor, Kundapur, Udupi District, Karnataka</strong></div>
               </div>
+
               <div class="detail-row">
                 <span class="detail-icon"><i class="bi bi-mortarboard"></i></span>
                 <div><small>Degree</small><strong>B.E. · VLSI Design &amp; Technology</strong></div>
               </div>
+
               <div class="detail-row mb-0">
                 <span class="detail-icon"><i class="bi bi-building"></i></span>
                 <div><small>College</small><strong>ST Joseph Engineering College, Mangalore</strong></div>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
@@ -230,29 +237,29 @@
         <div class="timeline">
           <div class="timeline-item reveal">
             <div class="timeline-dot"><i class="bi bi-book"></i></div>
-            <div class="timeline-card glass-card">
+            <article class="timeline-card glass-card">
               <span class="timeline-year">PUC</span>
               <h3>Janatha PU College, Kundapur</h3>
-              <p class="mb-0">Completed Pre-University education with a foundation for engineering studies.</p>
-            </div>
+              <p class="mb-0">Completed Pre-University education and built the foundation for engineering studies.</p>
+            </article>
           </div>
 
           <div class="timeline-item reveal reveal-delay">
             <div class="timeline-dot"><i class="bi bi-buildings"></i></div>
-            <div class="timeline-card glass-card">
-              <span class="timeline-year">University</span>
+            <article class="timeline-card glass-card">
+              <span class="timeline-year">College</span>
               <h3>ST Joseph Engineering College, Mangalore</h3>
-              <p class="mb-0">Currently pursuing engineering with a strong interest in technology and software.</p>
-            </div>
+              <p class="mb-0">Currently pursuing engineering with an interest in technology, coding, and practical projects.</p>
+            </article>
           </div>
 
           <div class="timeline-item reveal">
             <div class="timeline-dot"><i class="bi bi-cpu"></i></div>
-            <div class="timeline-card glass-card">
+            <article class="timeline-card glass-card">
               <span class="timeline-year">Current</span>
               <h3>B.E. in VLSI Design and Technology</h3>
               <p class="mb-0">3rd Semester · Exploring VLSI, programming, software development, and innovation.</p>
-            </div>
+            </article>
           </div>
         </div>
       </div>
@@ -268,65 +275,69 @@
         </div>
 
         <div class="row g-4">
+          <!-- Python -->
           <div class="col-md-6 reveal">
             <article class="skill-card glass-card">
               <div class="skill-top">
-                <div class="skill-icon python-icon"><i class="bi bi-filetype-py"></i></div>
+                <div class="skill-icon"><i class="bi bi-filetype-py"></i></div>
                 <div>
                   <h3>Python</h3>
                   <p>Programming &amp; problem solving</p>
                 </div>
                 <span class="skill-percent">80%</span>
               </div>
-              <div class="progress skill-progress" role="progressbar" aria-label="Python learning progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+              <div class="progress skill-progress" role="progressbar" aria-label="Python skill level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
                 <div class="progress-bar" data-progress="80"></div>
               </div>
             </article>
           </div>
 
+          <!-- C -->
           <div class="col-md-6 reveal reveal-delay">
             <article class="skill-card glass-card">
               <div class="skill-top">
-                <div class="skill-icon c-icon"><i class="bi bi-code-square"></i></div>
+                <div class="skill-icon"><i class="bi bi-code-square"></i></div>
                 <div>
                   <h3>C</h3>
                   <p>Core programming &amp; logic</p>
                 </div>
                 <span class="skill-percent">75%</span>
               </div>
-              <div class="progress skill-progress" role="progressbar" aria-label="C learning progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
+              <div class="progress skill-progress" role="progressbar" aria-label="C skill level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
                 <div class="progress-bar" data-progress="75"></div>
               </div>
             </article>
           </div>
 
+          <!-- C++ -->
           <div class="col-md-6 reveal">
             <article class="skill-card glass-card">
               <div class="skill-top">
-                <div class="skill-icon cpp-icon"><i class="bi bi-braces"></i></div>
+                <div class="skill-icon"><i class="bi bi-braces"></i></div>
                 <div>
                   <h3>C++</h3>
-                  <p>OOP &amp; software development</p>
+                  <p>Object-oriented programming</p>
                 </div>
                 <span class="skill-percent">70%</span>
               </div>
-              <div class="progress skill-progress" role="progressbar" aria-label="C++ learning progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70">
+              <div class="progress skill-progress" role="progressbar" aria-label="C++ skill level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70">
                 <div class="progress-bar" data-progress="70"></div>
               </div>
             </article>
           </div>
 
+          <!-- Advanced C -->
           <div class="col-md-6 reveal reveal-delay">
             <article class="skill-card glass-card">
               <div class="skill-top">
-                <div class="skill-icon advanced-c-icon"><i class="bi bi-terminal"></i></div>
+                <div class="skill-icon"><i class="bi bi-terminal"></i></div>
                 <div>
                   <h3>Advanced C</h3>
                   <p>Deeper C concepts &amp; practice</p>
                 </div>
                 <span class="skill-percent">55%</span>
               </div>
-              <div class="progress skill-progress" role="progressbar" aria-label="Advanced C learning progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55">
+              <div class="progress skill-progress" role="progressbar" aria-label="Advanced C skill level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55">
                 <div class="progress-bar" data-progress="55"></div>
               </div>
             </article>
@@ -349,7 +360,7 @@
         <div class="section-heading reveal">
           <span class="eyebrow">04 · Projects</span>
           <h2>Projects are <span class="gradient-text">coming soon</span>.</h2>
-          <p>I am currently building and learning through practical project work.</p>
+          <p>Project work is currently in progress. This section is ready for future builds.</p>
         </div>
 
         <div class="row g-4">
@@ -362,8 +373,7 @@
               <div class="project-content">
                 <span class="project-status">Coming soon</span>
                 <h3>Software Project</h3>
-                <p>Space reserved for a future software or coding project with a practical real-world goal.</p>
-                <button class="btn btn-sm btn-outline-light disabled">Details coming soon</button>
+                <p>Reserved for a future coding or software-development project with a practical real-world goal.</p>
               </div>
             </article>
           </div>
@@ -377,8 +387,7 @@
               <div class="project-content">
                 <span class="project-status">Coming soon</span>
                 <h3>VLSI Project</h3>
-                <p>Space reserved for a future VLSI-focused project demonstrating digital design and hardware concepts.</p>
-                <button class="btn btn-sm btn-outline-light disabled">Details coming soon</button>
+                <p>Reserved for a future VLSI-focused project demonstrating digital design and hardware concepts.</p>
               </div>
             </article>
           </div>
@@ -392,8 +401,7 @@
               <div class="project-content">
                 <span class="project-status">Coming soon</span>
                 <h3>Innovation Project</h3>
-                <p>Space reserved for an upcoming experiment or innovative build combining software and hardware interests.</p>
-                <button class="btn btn-sm btn-outline-light disabled">Details coming soon</button>
+                <p>Reserved for an upcoming experiment or innovative build combining your software and hardware interests.</p>
               </div>
             </article>
           </div>
@@ -401,7 +409,7 @@
       </div>
     </section>
 
-    <!-- Achievements -->
+    <!-- Achievements & Certificates -->
     <section id="achievements" class="section-pad section-soft">
       <div class="container">
         <div class="section-heading reveal">
@@ -413,7 +421,7 @@
         <div class="row g-4">
           <div class="col-md-6 col-lg-4 reveal">
             <article class="certificate-card glass-card h-100">
-              <div class="certificate-icon"><i class="bi bi-google"></i></div>
+              <div class="certificate-icon"><i class="bi bi-cloud-check"></i></div>
               <span class="certificate-tag">Google Cloud</span>
               <h3>Generative AI</h3>
               <p>Certificate related to Generative AI learning and Google Cloud ecosystem exposure.</p>
@@ -433,31 +441,31 @@
 
           <div class="col-md-6 col-lg-4 reveal">
             <article class="certificate-card glass-card h-100">
-              <div class="certificate-icon"><i class="bi bi-person-check"></i></div>
+              <div class="certificate-icon"><i class="bi bi-person-badge"></i></div>
               <span class="certificate-tag">Buddy4Study</span>
               <h3>Psychometric Assessment</h3>
-              <p>Certification for participation in a psychometric assessment experience.</p>
-              <div class="certificate-footer"><i class="bi bi-award"></i> Learning milestone</div>
+              <p>Certification associated with a psychometric assessment and career-oriented self-discovery.</p>
+              <div class="certificate-footer"><i class="bi bi-award"></i> Assessment certification</div>
             </article>
           </div>
 
           <div class="col-md-6 col-lg-6 reveal">
             <article class="certificate-card glass-card h-100">
-              <div class="certificate-icon"><i class="bi bi-mic"></i></div>
+              <div class="certificate-icon"><i class="bi bi-google"></i></div>
               <span class="certificate-tag">Google</span>
               <h3>Pitch Night Edition</h3>
-              <p>Certification from a Google-linked pitch-focused learning or participation activity.</p>
-              <div class="certificate-footer"><i class="bi bi-award"></i> Participation certificate</div>
+              <p>Certification from Google related to the Pitch Night Edition learning or participation experience.</p>
+              <div class="certificate-footer"><i class="bi bi-award"></i> Google certificate</div>
             </article>
           </div>
 
           <div class="col-md-6 col-lg-6 reveal reveal-delay">
             <article class="certificate-card glass-card h-100">
-              <div class="certificate-icon"><i class="bi bi-flask"></i></div>
+              <div class="certificate-icon"><i class="bi bi-beaker"></i></div>
               <span class="certificate-tag">ChemAtom</span>
               <h3>ChemAtom Certification</h3>
-              <p>Certification milestone included in my academic and learning portfolio.</p>
-              <div class="certificate-footer"><i class="bi bi-award"></i> Certificate</div>
+              <p>Certification added to the portfolio as part of your academic and learning achievements.</p>
+              <div class="certificate-footer"><i class="bi bi-award"></i> Learning milestone</div>
             </article>
           </div>
         </div>
@@ -469,44 +477,56 @@
       <div class="container">
         <div class="section-heading text-center reveal">
           <span class="eyebrow">06 · Contact</span>
-          <h2>Let's <span class="gradient-text">connect</span>.</h2>
-          <p>Have an idea, opportunity, or collaboration in mind?</p>
+          <h2>Let's connect &amp; <span class="gradient-text">build</span>.</h2>
+          <p>Have an opportunity, idea, or collaboration in mind? Send a message.</p>
         </div>
 
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4">
           <div class="col-lg-5 reveal">
-            <div class="contact-panel glass-card h-100">
+            <div class="glass-card contact-panel h-100">
               <h3>Contact information</h3>
-              <p class="contact-intro">Feel free to reach out through email, phone, or GitHub.</p>
+              <p class="contact-intro">Reach out through email, phone, or GitHub.</p>
 
-              <a class="contact-item" href="mailto:anvithpoojari1721@gmail.com">
+              <a class="contact-item text-decoration-none" href="mailto:anvithpoojari1721@gmail.com">
                 <span class="contact-icon"><i class="bi bi-envelope"></i></span>
-                <span><small>Email</small><strong>anvithpoojari1721@gmail.com</strong></span>
+                <span>
+                  <small>Email</small>
+                  <strong>anvithpoojari1721@gmail.com</strong>
+                </span>
               </a>
 
-              <a class="contact-item" href="tel:+917026412717">
+              <a class="contact-item text-decoration-none" href="tel:+917026412717">
                 <span class="contact-icon"><i class="bi bi-telephone"></i></span>
-                <span><small>Phone</small><strong>+91 7026412717</strong></span>
+                <span>
+                  <small>Phone</small>
+                  <strong>+91 7026412717</strong>
+                </span>
               </a>
 
-              <a class="contact-item" href="https://github.com/A-poojary/ANVITH-POOJARY.git" target="_blank" rel="noopener noreferrer">
+              <a class="contact-item text-decoration-none" href="https://github.com/A-poojary/ANVITH-POOJARY" target="_blank" rel="noopener noreferrer">
                 <span class="contact-icon"><i class="bi bi-github"></i></span>
-                <span><small>GitHub</small><strong>A-poojary / ANVITH-POOJARY</strong></span>
+                <span>
+                  <small>GitHub</small>
+                  <strong>A-poojary / ANVITH-POOJARY</strong>
+                </span>
               </a>
 
               <div class="contact-item">
                 <span class="contact-icon"><i class="bi bi-geo-alt"></i></span>
-                <span><small>Location</small><strong>Byndoor, Kundapur, Udupi District, Karnataka - 576219</strong></span>
+                <span>
+                  <small>Location</small>
+                  <strong>Byndoor, Kundapur, Udupi District, Karnataka - 576219</strong>
+                </span>
               </div>
 
               <div class="contact-socials">
-                <a href="https://github.com/A-poojary" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+                <a class="social-btn" href="https://github.com/A-poojary/ANVITH-POOJARY" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <i class="bi bi-github"></i>
                 </a>
-                <a href="mailto:anvithpoojari1721@gmail.com" class="social-btn" aria-label="Email">
+                <a class="social-btn" href="mailto:anvithpoojari1721@gmail.com" aria-label="Email">
                   <i class="bi bi-envelope"></i>
                 </a>
-                <a href="tel:+917026412717" class="social-btn" aria-label="Phone">
+                <a class="social-btn" href="tel:+917026412717" aria-label="Phone">
                   <i class="bi bi-telephone"></i>
                 </a>
               </div>
@@ -514,38 +534,45 @@
           </div>
 
           <div class="col-lg-7 reveal reveal-delay">
-            <div class="contact-form-wrap glass-card">
+            <div class="glass-card contact-form-wrap">
+              <h3>Send me a message</h3>
+              <p class="contact-intro">All fields are validated before your email client is opened.</p>
+
               <form id="contactForm" novalidate>
                 <div class="row g-3">
                   <div class="col-md-6">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Your name" autocomplete="name" required>
-                    <div class="invalid-feedback">Please enter your name.</div>
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" id="name" name="name" type="text"
+                           placeholder="Your name" autocomplete="name" required>
+                    <div class="invalid-feedback">Please enter at least 2 characters.</div>
                   </div>
 
                   <div class="col-md-6">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control" id="email" name="email" type="email"
+                           placeholder="you@example.com" autocomplete="email" required>
+                    <div class="invalid-feedback">Enter a valid email address.</div>
                   </div>
 
                   <div class="col-12">
-                    <label for="subject" class="form-label">Subject</label>
-                    <input type="text" class="form-control" id="subject" name="subject" placeholder="What would you like to discuss?" required>
+                    <label class="form-label" for="subject">Subject</label>
+                    <input class="form-control" id="subject" name="subject" type="text"
+                           placeholder="What would you like to discuss?" required>
                     <div class="invalid-feedback">Please enter a subject.</div>
                   </div>
 
                   <div class="col-12">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
-                    <div class="invalid-feedback">Please enter a message.</div>
+                    <label class="form-label" for="message">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="6"
+                              placeholder="Write your message..." required></textarea>
+                    <div class="invalid-feedback">Please enter at least 10 characters.</div>
                   </div>
 
-                  <div class="col-12 d-flex flex-wrap align-items-center justify-content-between gap-3 pt-2">
-                    <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
-                    <button type="submit" class="btn btn-primary-custom px-4">
-                      <i class="bi bi-send-fill me-2"></i>Send Message
+                  <div class="col-12 d-flex flex-column flex-sm-row gap-3 align-items-sm-center justify-content-between">
+                    <button class="btn btn-primary-custom px-4" type="submit">
+                      <i class="bi bi-send me-2"></i>Send Message
                     </button>
+                    <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
                   </div>
                 </div>
               </form>
@@ -561,23 +588,23 @@
     <div class="container">
       <div class="footer-inner">
         <div>
-          <div class="footer-brand">ANVITH<span class="brand-dot">.</span></div>
+          <div class="footer-brand">ANVITH POOJARY</div>
           <p class="mb-0">© 2026 ANVITH POOJARY | Personal Portfolio</p>
         </div>
 
         <div class="footer-links">
-          <a href="https://github.com/A-poojary/ANVITH-POOJARY.git" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/A-poojary/ANVITH-POOJARY" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="mailto:anvithpoojari1721@gmail.com">Email</a>
-          <a href="#home" id="backToTop">Back to top <i class="bi bi-arrow-up"></i></a>
+          <a href="#home" id="backToTop">Back to Top <i class="bi bi-arrow-up"></i></a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Custom JavaScript -->
+  <!-- Custom JS -->
   <script src="script.js"></script>
 </body>
 </html>
