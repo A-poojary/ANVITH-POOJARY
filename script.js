@@ -1,165 +1,311 @@
-/* Portfolio interactions: loading state, scroll reveal, navigation, and form validation. */
-(function () {
-  'use strict';
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const loader = document.getElementById("loader");
+  const nav = document.getElementById("mainNav");
+  const navLinks = [...document.querySelectorAll(".nav-link")];
+  const revealElements = [...document.querySelectorAll(".reveal")];
+  const skillBars = [...document.querySelectorAll(".skill-progress .progress-bar")];
+  const contactForm = document.getElementById("contactForm");
+  const formStatus = document.getElementById("formStatus");
+  const resumeBtn = document.getElementById("resumeBtn");
+  const backToTop = document.getElementById("backToTop");
 
-  const pageLoader = document.getElementById('pageLoader');
-  const navbar = document.getElementById('mainNav');
-  const navMenu = document.getElementById('navMenu');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const revealItems = document.querySelectorAll('[data-reveal]');
-  const sections = document.querySelectorAll('main section[id]');
-  const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
-  const downloadResume = document.getElementById('downloadResume');
-  const shareButton = document.getElementById('shareButton');
-
-  // Let the browser paint the page before removing the loading screen.
-  window.addEventListener('load', function () {
-    window.setTimeout(function () {
-      pageLoader.classList.add('is-hidden');
-    }, 450);
+  // -----------------------------
+  // Loading screen
+  // -----------------------------
+  window.addEventListener("load", () => {
+    window.setTimeout(() => {
+      loader?.classList.add("hidden");
+      body.classList.remove("loading");
+    }, 550);
   });
 
-  // Reveal content as it enters the viewport.
-  revealItems.forEach(function (item) {
-    const delay = item.dataset.revealDelay || 0;
-    item.style.setProperty('--reveal-delay', delay + 'ms');
-  });
+  // -----------------------------
+  // Sticky navbar shadow/background
+  // -----------------------------
+  const handleNavScroll = () => {
+    nav?.classList.toggle("scrolled", window.scrollY > 20);
+  };
 
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+  handleNavScroll();
+  window.addEventListener("scroll", handleNavScroll, { passive: true });
 
-    revealItems.forEach(function (item) { revealObserver.observe(item); });
-  } else {
-    revealItems.forEach(function (item) { item.classList.add('is-visible'); });
-  }
+  // -----------------------------
+  // Scroll reveal animation
+  // -----------------------------
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.14 });
 
-  // Keep the navigation state in sync with the section currently in view.
-  function updateNavigation() {
-    navbar.classList.toggle('scrolled', window.scrollY > 30);
-    let currentSection = 'home';
+  revealElements.forEach((el) => revealObserver.observe(el));
 
-    sections.forEach(function (section) {
-      if (window.scrollY >= section.offsetTop - 150) {
-        currentSection = section.id;
+  // -----------------------------
+  // Animated skill progress bars
+  // -----------------------------
+  const skillObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const bar = entry.target;
+      const progress = bar.dataset.progress || "0";
+      bar.style.width = progress + "%";
+
+      observer.unobserve(bar);
+    });
+  }, { threshold: 0.25 });
+
+  skillBars.forEach((bar) => skillObserver.observe(bar));
+
+  // -----------------------------
+  // Active section in navbar
+  // -----------------------------
+  const sections = [...document.querySelectorAll("main section[id]")];
+
+  const updateActiveNav = () => {
+    const marker = window.scrollY + window.innerHeight * 0.32;
+
+    let currentId = "home";
+
+    sections.forEach((section) => {
+      if (section.offsetTop <= marker) {
+        currentId = section.id;
       }
     });
 
-    navLinks.forEach(function (link) {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + currentSection);
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === "#" + currentId;
+      link.classList.toggle("active", isActive);
     });
-  }
+  };
 
-  window.addEventListener('scroll', updateNavigation, { passive: true });
-  updateNavigation();
+  updateActiveNav();
+  window.addEventListener("scroll", updateActiveNav, { passive: true });
 
-  // Collapse the mobile menu after a navigation choice.
-  navLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-      if (window.innerWidth < 992 && navMenu.classList.contains('show')) {
-        bootstrap.Collapse.getOrCreateInstance(navMenu).hide();
-      }
+  // -----------------------------
+  // Close mobile menu after click
+  // -----------------------------
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const collapseElement = document.getElementById("navbarNav");
+      if (!collapseElement || window.innerWidth >= 992) return;
+
+      const collapse = bootstrap.Collapse.getInstance(collapseElement)
+        || new bootstrap.Collapse(collapseElement, { toggle: false });
+
+      collapse.hide();
     });
   });
 
-  // Generate a small resume file so the download action works without a server.
-  downloadResume.addEventListener('click', function (event) {
-    event.preventDefault();
-    const resume = [
-      'ANVITH POOJARY',
-      'VLSI STUDENT',
-      '',
-      'Byndoor, Kundapur, Udupi District, Karnataka - 576219',
-      'Email: anvithpoojari1721@gnail.com',
-      'Phone: +91 7026412717',
-      'GitHub: https://github.com/A-poojary',
-      '',
-      'EDUCATION',
-      'B.E. in Very Large Scale Integration (VLSI), SJEC, Mangaluru',
-      'Currently in 3rd Semester',
-      '',
-      'SKILLS',
-      'Power Electronics | Basic Electronics | Generative AI',
-      '',
-      'PROJECTS',
-      'Barcode Reader | Google Student Ambassador AI Generation Prompts'
-    ].join('\n');
-    const file = new Blob([resume], { type: 'text/plain' });
-    const downloadUrl = URL.createObjectURL(file);
-    const link = document.createElement('a');
-    link.href = downloadUrl;
-    link.download = 'Anvith-Poojary-Resume.txt';
-    link.click();
-    URL.revokeObjectURL(downloadUrl);
-  });
+  // -----------------------------
+  // Resume button: print/save as PDF
+  // This avoids referencing a missing resume.pdf file.
+  // -----------------------------
+  resumeBtn?.addEventListener("click", () => {
+    const resumeWindow = window.open("", "_blank", "width=900,height=900");
 
-  // Share through the device when supported, with a copy-link fallback.
-  shareButton.addEventListener('click', async function () {
-    const shareData = {
-      title: 'Anvith Poojary | VLSI Student',
-      text: 'Explore Anvith Poojary\'s VLSI student portfolio.',
-      url: window.location.href.split('#')[0]
-    };
-
-    if (navigator.share) {
-      try {
-        await navigator.share(shareData);
-        shareButton.innerHTML = '<i class="bi bi-check2"></i> Shared';
-      } catch (error) {
-        if (error.name !== 'AbortError') shareButton.innerHTML = '<i class="bi bi-exclamation-circle"></i> Try again';
-      }
-    } else {
-      try {
-        await navigator.clipboard.writeText(shareData.url);
-        shareButton.innerHTML = '<i class="bi bi-check2"></i> Link copied';
-      } catch (error) {
-        window.prompt('Copy this portfolio link:', shareData.url);
-      }
-    }
-
-    window.setTimeout(function () {
-      shareButton.innerHTML = '<i class="bi bi-share"></i> Share';
-    }, 2500);
-  });
-
-  // Validate each required field before showing a success state.
-  contactForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const fields = contactForm.querySelectorAll('input, textarea');
-    let formIsValid = true;
-
-    fields.forEach(function (field) {
-      const isEmail = field.type === 'email';
-      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim());
-      const fieldIsValid = field.value.trim() !== '' && (!isEmail || validEmail);
-      field.classList.toggle('is-invalid', !fieldIsValid);
-      field.classList.toggle('is-valid', fieldIsValid);
-      if (!fieldIsValid) formIsValid = false;
-    });
-
-    formStatus.classList.remove('error');
-    if (!formIsValid) {
-      formStatus.textContent = 'Please check the highlighted fields.';
-      formStatus.classList.add('error');
+    if (!resumeWindow) {
+      alert("Please allow pop-ups for this website to generate the resume.");
       return;
     }
 
-    formStatus.textContent = 'Thanks, Anvith will be in touch soon.';
-    contactForm.reset();
-    fields.forEach(function (field) { field.classList.remove('is-valid'); });
+    const resumeHtml = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ANVITH POOJARY — Resume</title>
+        <style>
+          body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 42px;
+            color: #172033;
+            line-height: 1.55;
+          }
+          .header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            border-bottom: 2px solid #6d5dfc;
+            padding-bottom: 18px;
+          }
+          h1 { margin: 0 0 6px; font-size: 32px; }
+          h2 {
+            margin: 26px 0 8px;
+            font-size: 17px;
+            color: #4f3fe0;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+          }
+          .muted { color: #5b657b; }
+          .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px; }
+          .item strong { display: block; margin-bottom: 2px; }
+          ul { margin-top: 8px; padding-left: 18px; }
+          .print-note {
+            margin-top: 28px;
+            padding: 12px 15px;
+            background: #f4f3ff;
+            border-radius: 8px;
+            font-size: 12px;
+          }
+          @media print { .print-note { display: none; } }
+        </style>
+      </head>
+      <body>
+        <div class="header">
+          <div>
+            <h1>ANVITH POOJARY</h1>
+            <div class="muted">VLSI (Design & Technology) Student</div>
+          </div>
+          <div class="muted" style="text-align:right;">
+            anvith1721@gmail.com<br>
+            +91 7026412717
+          </div>
+        </div>
+
+        <h2>Profile</h2>
+        <p>
+          Engineering student interested in coding, software development,
+          problem-solving, VLSI, and building innovative technology projects.
+        </p>
+
+        <h2>Education</h2>
+        <div class="grid">
+          <div class="item"><strong>B.E. — VLSI Design & Technology</strong><span class="muted">ST Joseph Engineering College, Mangalore · 3rd Semester</span></div>
+          <div class="item"><strong>PUC</strong><span class="muted">Janatha PU College, Kundapur</span></div>
+        </div>
+
+        <h2>Technical Skills</h2>
+        <ul>
+          <li>Python</li>
+          <li>C</li>
+          <li>C++</li>
+          <li>Advanced C</li>
+        </ul>
+
+        <h2>Certificates</h2>
+        <ul>
+          <li>Google Cloud — Generative AI</li>
+          <li>Manipal University — Stellar Hack: A Vibe-a-thon</li>
+          <li>Buddy4Study — Psychometric Assessment</li>
+          <li>Google — Pitch Night Edition</li>
+          <li>ChemAtom Certification</li>
+        </ul>
+
+        <h2>Location</h2>
+        <p class="muted">Byndoor, Kundapur, Udupi District, Karnataka — 576219</p>
+
+        <div class="print-note">
+          Use your browser's Print dialog and choose <strong>Save as PDF</strong>
+          to download this resume.
+        </div>
+
+        <script>
+          window.addEventListener("load", () => setTimeout(() => window.print(), 450));
+        </script>
+      </body>
+      </html>
+    `;
+
+    resumeWindow.document.open();
+    resumeWindow.document.write(resumeHtml);
+    resumeWindow.document.close();
   });
 
-  contactForm.querySelectorAll('input, textarea').forEach(function (field) {
-    field.addEventListener('input', function () {
-      field.classList.remove('is-invalid');
-      formStatus.textContent = '';
+  // -----------------------------
+  // Contact form validation
+  // Opens user's email app after valid submission.
+  // -----------------------------
+  const fields = {
+    name: {
+      element: document.getElementById("name"),
+      validate(value) {
+        return value.trim().length >= 2;
+      }
+    },
+    email: {
+      element: document.getElementById("email"),
+      validate(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
+      }
+    },
+    subject: {
+      element: document.getElementById("subject"),
+      validate(value) {
+        return value.trim().length >= 3;
+      }
+    },
+    message: {
+      element: document.getElementById("message"),
+      validate(value) {
+        return value.trim().length >= 10;
+      }
+    }
+  };
+
+  Object.values(fields).forEach(({ element }) => {
+    element?.addEventListener("input", () => {
+      element.classList.remove("is-invalid");
+
+      const allValid = Object.values(fields).every(({ element: field, validate }) => {
+        return validate(field.value);
+      });
+
+      if (allValid) {
+        formStatus.textContent = "";
+        formStatus.classList.remove("error");
+      }
     });
   });
-}());
+
+  contactForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    formStatus.textContent = "";
+    formStatus.classList.remove("error");
+
+    let valid = true;
+
+    Object.values(fields).forEach(({ element, validate }) => {
+      const isValid = validate(element.value);
+      element.classList.toggle("is-invalid", !isValid);
+      if (!isValid) valid = false;
+    });
+
+    if (!valid) {
+      formStatus.textContent = "Please correct the highlighted fields.";
+      formStatus.classList.add("error");
+      return;
+    }
+
+    const name = fields.name.element.value.trim();
+    const email = fields.email.element.value.trim();
+    const subject = fields.subject.element.value.trim();
+    const message = fields.message.element.value.trim();
+
+    const mailSubject = encodeURIComponent(subject);
+    const mailBody = encodeURIComponent(
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n\n" +
+      message
+    );
+
+    formStatus.textContent = "Validation complete — opening your email app...";
+    window.location.href = `mailto:anvith1721@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+    contactForm.reset();
+    Object.values(fields).forEach(({ element }) => element.classList.remove("is-invalid"));
+  });
+
+  // -----------------------------
+  // Back to top
+  // -----------------------------
+  backToTop?.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
