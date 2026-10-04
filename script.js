@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // -----------------------------
-  // Sticky navbar shadow/background
+  // Navbar state on scroll
   // -----------------------------
   const handleNavScroll = () => {
     nav?.classList.toggle("scrolled", window.scrollY > 20);
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.14 });
 
-  revealElements.forEach((el) => revealObserver.observe(el));
+  revealElements.forEach((element) => revealObserver.observe(element));
 
   // -----------------------------
   // Animated skill progress bars
@@ -61,13 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
   skillBars.forEach((bar) => skillObserver.observe(bar));
 
   // -----------------------------
-  // Active section in navbar
+  // Active nav section
   // -----------------------------
   const sections = [...document.querySelectorAll("main section[id]")];
 
   const updateActiveNav = () => {
     const marker = window.scrollY + window.innerHeight * 0.32;
-
     let currentId = "home";
 
     sections.forEach((section) => {
@@ -101,8 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // -----------------------------
-  // Resume button: print/save as PDF
-  // This avoids referencing a missing resume.pdf file.
+  // Resume generation
+  // Opens a printable, clean resume in a new window.
   // -----------------------------
   resumeBtn?.addEventListener("click", () => {
     const resumeWindow = window.open("", "_blank", "width=900,height=900");
@@ -153,7 +152,9 @@ document.addEventListener("DOMContentLoaded", () => {
             border-radius: 8px;
             font-size: 12px;
           }
-          @media print { .print-note { display: none; } }
+          @media print {
+            .print-note { display: none; }
+          }
         </style>
       </head>
       <body>
@@ -163,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="muted">VLSI (Design & Technology) Student</div>
           </div>
           <div class="muted" style="text-align:right;">
-            anvith1721@gmail.com<br>
+            anvithpoojari1721@gmail.com<br>
             +91 7026412717
           </div>
         </div>
@@ -176,8 +177,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <h2>Education</h2>
         <div class="grid">
-          <div class="item"><strong>B.E. — VLSI Design & Technology</strong><span class="muted">ST Joseph Engineering College, Mangalore · 3rd Semester</span></div>
-          <div class="item"><strong>PUC</strong><span class="muted">Janatha PU College, Kundapur</span></div>
+          <div class="item">
+            <strong>B.E. — VLSI Design & Technology</strong>
+            <span class="muted">ST Joseph Engineering College, Mangalore · 3rd Semester</span>
+          </div>
+          <div class="item">
+            <strong>PUC</strong>
+            <span class="muted">Janatha PU College, Kundapur</span>
+          </div>
         </div>
 
         <h2>Technical Skills</h2>
@@ -219,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // -----------------------------
   // Contact form validation
-  // Opens user's email app after valid submission.
+  // Opens the user's email client after successful validation.
   // -----------------------------
   const fields = {
     name: {
@@ -231,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     email: {
       element: document.getElementById("email"),
       validate(value) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
+        return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test(value.trim());
       }
     },
     subject: {
@@ -251,15 +258,8 @@ document.addEventListener("DOMContentLoaded", () => {
   Object.values(fields).forEach(({ element }) => {
     element?.addEventListener("input", () => {
       element.classList.remove("is-invalid");
-
-      const allValid = Object.values(fields).every(({ element: field, validate }) => {
-        return validate(field.value);
-      });
-
-      if (allValid) {
-        formStatus.textContent = "";
-        formStatus.classList.remove("error");
-      }
+      formStatus.textContent = "";
+      formStatus.classList.remove("error");
     });
   });
 
@@ -295,7 +295,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     formStatus.textContent = "Validation complete — opening your email app...";
-    window.location.href = `mailto:anvith1721@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+    window.location.href =
+      `mailto:anvithpoojari1721@gmail.com?subject=${mailSubject}&body=${mailBody}`;
 
     contactForm.reset();
     Object.values(fields).forEach(({ element }) => element.classList.remove("is-invalid"));
